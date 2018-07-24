@@ -4,9 +4,9 @@ To get started, read [STARTED](STARTED.md) document.
 
 Below is the template of the board's `README.md`.
 
-### Firefly-Board Manual
+### Firefly-RK3399 Manual
 
-This is the manual of the Firefly-Board board.
+This is the manual of the Firefly-RK3399 board.
 
 The manual can be built by:
 
