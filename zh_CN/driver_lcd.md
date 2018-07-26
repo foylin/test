@@ -74,7 +74,7 @@ Firefly-RK3399的SDK有EDP DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchip
 
 ```
 lcd_en:(GPIO1_A1)GPIO_ACTIVE_HIGH
-lcd_en:(GPIO4_D5)GPIO_ACTIVE_HIGH
+lcd_rst:(GPIO4_D5)GPIO_ACTIVE_HIGH
 ```
 都是高电平有效，具体的引脚配置请参考《GPIO》一节。
 ###### MIPI屏

@@ -42,7 +42,7 @@ Firefly-RK3399 使用以下串口参数：
 * [CH340](https://sparks.gogo.co.nz/ch340.html)
 * [PL2303](http://www.prolific.com.tw/US/ShowProduct.aspx?pcid=41)
 * [CP210X](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
-* 
+
 如果在 Win8 上不能正常使用 PL2303，参考[这篇文章](http://blog.csdn.net/ropai/article/details/19619951)， 采用 3.3.5.122 或更老版本的旧驱动即可。
 
 插入适配器后，系统会提示发现新硬件，并初始化，之后可以在设备管理器找到对应的 COM 口：   
