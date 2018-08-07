@@ -17,29 +17,42 @@ $ sudo apt-get install gcc-arm-linux-gnueabihf \
 gcc-aarch64-linux-gnu device-tree-compiler lzop libncurses5-dev \
 libssl1.0.0 libssl-dev
 ```
-
-### 获取内核源码
-
+#### 获取交叉编译工具链
+```
+git clone -b master https://github.com/T-Firefly/prebuilts.git
+```
+#### 获取内核源码
+```
 git clone -b firefly https://github.com/FireflyTeam/kernel.git
+```
+#### 获取u-boot源码
+```
+git clone -b master https://github.com/FireflyTeam/u-boot.git
+```
 
-## 编译内核
-
+## 编译kernel
 * 编译前执行如下命令配置环境变量：
 ```
-export ARCH=arm
-export CROSS_COMPILE=arm-linux-gnueabihf-
+export ARCH=arm64
+# export CROSS_COMPILE=aarch64-linux-gnu-
 ```
 *  编译 firefly-rk3399
 ```
 make firefly_linux_defconfig
 make rk3399-firefly-linux.img -j4
 ```
-
 编译完成后，会在 kernel 目录下生成 kernel.img 和 resource.img.
-如需编译 arch/arm/boot/dts/rockchip/ 目录下某个 xxx.dts，则
+* MIPI7.85 编译
 ```
-make xxx.img -j4
+make rk3399-firefly-linux-mipi.img -j4
 ```
+
+## 编译u-boot
+```
+rk3399_linux_defconfig
+./mkv8.sh
+```
+
 ## 升级分区镜像
 ### 查看 parameter 文件
 ```
@@ -50,31 +63,30 @@ mtdparts=rk29xxnand:0x00002000@0x00002000(uboot),0x00002000@0x00004000(trust),\
 ```
 * 注意点
 
-root=/dev/mmcblk2p6                             ---> rootfs 分区
-如 根文件分区大小异常，
+root=/dev/mmcblk2p6         ---> rootfs 分区
 ```
+如 根文件分区大小异常，执行
  resize2fs /dev/mmcblk2p6
-```
 
  0x0000A000@0x0000E000(kernel)        ---> kernel 分区
- kernel                                                        --->  分区名称
- 0x0000E000                                             --->  分区起始地址
- 0x0000A000                                            --->  分区大小，一般不需要关注
+   |-- kernel                           --->  分区名称
+   |-- 0x0000E000                       -->  分区起始地址
+   |-- 0x0000A000                       --->  分区大小，一般不需要关注
+ ```
 
 ### Linux upgrade_tool 升级分区镜像（ xx.img ）
 
 注意，parameter 分区对应的名称，是否相对应
-
 ```
 sudo upgrade_tool di kernel kernel.img
 sudo upgrade_tool di boot rootfs.img
 ...
+
+kernel                  --->  上点 parameter 所述分区名称
+kernel.img              --->  编译生产的 kernel.img 分区镜像
 ```
-kernel                                                         --->  上点 parameter 所述分区名称
-kernel.img                                                 --->  编译生产的 kernel.img 分区镜像
 
 ### Windows AndroidTool 工具升级分区镜像
-
 注意，parameter 分区对应的起始地址，是否相对应
 ![](img/linux_compile_kernel.png)
 
