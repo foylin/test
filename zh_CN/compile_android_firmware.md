@@ -9,7 +9,7 @@
 * 30GB 空闲的磁盘空间用于构建，源码树另外占用大约 25GB
 
 官方推荐 Ubuntu 14.04 操作系统，经测试，Ubuntu 12.04 也可以编译运行成功，只需要满足 [http://source.android.com/source/building.html](http://source.android.com/source/building.html) 里的软硬件配置即可。  
-编译环境的初始化可参考 [http://source.android.com/source/initializing.html](http://source.android.com/source/initializing.htm) 。
+编译环境的初始化可参考 [http://source.android.com/source/initializing.html](http://source.android.com/source/initializing.html) 。
 
 * 安装 OpenJDK 7：  
 
