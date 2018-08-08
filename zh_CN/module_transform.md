@@ -1,5 +1,5 @@
 # 串口模块
-## [USB转TTL串口模块](https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-12588694689.25.65vd8a&id=546045713700)
+## [USB转TTL串口模块](https://store.t-firefly.com/goods.php?id=24)
 ### 产品参数
 * 品牌：Firefly
 * 尺寸：29mm*19mm

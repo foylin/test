@@ -46,13 +46,13 @@
 有两种方法可以使设备进入升级模式
 
 * 一种方法是设备先断开电源适配器和Type-C数据线的连接：
-   * USB数据线一端连接主机，Type-C一端连接开发板Type-C母口。（量产版：连接双层USB3.0上层口 / 工程样机：连接双层USB3.0下层口。）
+   * USB数据线一端连接主机，Type-C一端连接开发板Type-C母口。
    * 按住设备上的 RECOVERY （恢复）键并保持。
    * 接上电源
    * 大约两秒钟后，松开 RECOVERY 键。
 
 *    另一种方法，无需断开电源适配器和Type-C数据线的连接：
-     * USB数据线一端连接主机，Type-C一端连接开发板Type-C母口。（量产版：连接双层USB3.0上层口 / 工程样机：连接双层USB3.0下层口。）
+     * USB数据线一端连接主机，Type-C一端连接开发板Type-C母口。
      * 按住设备上的 RECOVERY （恢复）键并保持。
      * 短按一下 RESET（复位）键。
      * 大约两秒钟后，松开 RECOVERY 键
@@ -63,7 +63,7 @@
 
 ## 烧写固件
 
-下载 [AndroidTool](https://pan.baidu.com/s/1i3rH8nN#list/path=%2F)，解压，运行 AndroidTool_Release_v2.33 目录里面的 AndroidTool.exe（注意，如果是 Windows 7/8,需要按鼠标右键，选择以管理员身份运行），如下图：   
+下载 [AndroidTool](https://pan.baidu.com/s/1vdElHfxKWBwZWs3tOIYUKw#list/path=%2F)，解压，运行 AndroidTool_Release_v2.38 目录里面的 AndroidTool.exe（注意，如果是 Windows 7/8,需要按鼠标右键，选择以管理员身份运行），如下图：   
 ![](img/upgrade_firmware3.png)
 
 ### 烧写统一固件 update.img

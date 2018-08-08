@@ -24,7 +24,7 @@ Firefly-RK3399 的标准套装包含以下配件：
 *    升级固件，调试
      *   Type-C数据线
      *   串口转 USB 适配器.
-*    发货清单   
+*    发货清单参考
 
 ![](img/started1.jpg)
 
@@ -35,9 +35,9 @@ Firefly-RK3399 的标准套装包含以下配件：
 ## 开机
 确认主板配件连接无误后，将电源适配器插入带电的插座上，电源线接口插入开发板，开发板第一次加电会自动开机。 在 Android 系统选择关机后，维持开发板供电，此时 Firefly-RK3399 有两种开机方式：
 
-*    长按电源键三秒(扩展按键)
+*    长按电源键三秒
 
-*    按红外遥控器上的开机按钮(扩展IR接口)
+*    按红外遥控器上的开机按钮
 
 开机时，蓝色的电源指示灯会亮起。如果板子接了HDMI显示器，可以看到Firefly 官方logo.
 ## FAQs
@@ -56,7 +56,7 @@ A3:用户名 firefly  密码 firefly
 切换超级用户  sudo -s
 ### Q4:Git链接地址？
 
-A4:[https://gitlab.com/TeeFirefly/FireNow-Marshmallow](https://gitlab.com/TeeFirefly/FireNow-Marshmallow)
+A4:[https://gitlab.com/TeeFirefly/FireNow-Nougat](https://gitlab.com/TeeFirefly/FireNow-Nougat)
 ### Q5:哪里有RK3399 芯片技术手册？
 A5:RK3399 芯片技术手册链接：[Brief](http://www.t-firefly.com/download/Firefly-RK3399/docs/Chip%20Specifications/Rockchip_RK3399_Datasheet_V0.7_20160219.pdf) [Part1](http://www.t-firefly.com/download/Firefly-RK3399/docs/TRM/Rockchip%20RK3399TRM%20V1.3%20Part1.pdf) [Part2](http://www.t-firefly.com/download/Firefly-RK3399/docs/TRM/Rockchip%20RK3399TRM%20V1.3%20Part2.pdf)
 ### Q6:怎么烧写MAC地址？

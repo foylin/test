@@ -1,4 +1,4 @@
-# [电源适配器](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-12605442688.63.9Hswp4&id=538464866731)
+# [电源适配器](https://store.t-firefly.com/goods.php?id=4)
 ### 产品参数
 * 产品：USB电源适配器
 * 规格：美规/欧规

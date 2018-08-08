@@ -18,38 +18,38 @@ Firefly-RK3399 支持五路UART：UART0, UART1, UART2, UART3, UART4，都拥有�
 
 文件kernel/arch/arm64/boot/dts/rockchip/rk3399.dtsi 有UART相关节点的定义：
 ```
-   aliases {
-       ...
-       serial0 = &uart0;
-       serial1 = &uart1;
-       serial2 = &uart2;
-       serial3 = &uart3;
-       serial4 = &uart4;
-   };
+aliases {
+...
+serial0 = &uart0;
+serial1 = &uart1;
+serial2 = &uart2;
+serial3 = &uart3;
+serial4 = &uart4;
+};
 ```
 serial0等串口在该文件的 aliases 节点中被定义为：serial0 = &uart0;
 
 因为我们Firefly-RK3399开发板引出了uart4供用户使用，所以这里就以uart4为例，介绍使用方法。下面是uart4节点相关定义：
 ```
-   uart4: serial@ff370000 {
-       compatible = "rockchip,rk3399-uart", "snps,dw-apb-uart";
-       reg = <0x0 0xff370000 0x0 0x100>;
-       clocks = <&pmucru SCLK_UART4_PMU>, <&pmucru PCLK_UART4_PMU>;
-       clock-names = "baudclk", "apb_pclk";
-       interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH 0>;
-       reg-shift = <2>;
-       reg-io-width = <4>;
-       pinctrl-names = "default";
-       pinctrl-0 = <&uart4_xfer>;
-       status = "disabled";
-   };
-   uart4 {
-       uart4_xfer: uart4-xfer {
-       rockchip,pins =
-               <1 7 RK_FUNC_1 &pcfg_pull_up>,
-               <1 8 RK_FUNC_1 &pcfg_pull_none>;
-       };
-   };
+uart4: serial@ff370000 {
+	compatible = "rockchip,rk3399-uart", "snps,dw-apb-uart";
+	reg = <0x0 0xff370000 0x0 0x100>;
+	clocks = <&pmucru SCLK_UART4_PMU>, <&pmucru PCLK_UART4_PMU>;
+	clock-names = "baudclk", "apb_pclk";
+	interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH 0>;
+	reg-shift = <2>;
+	reg-io-width = <4>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart4_xfer>;
+	status = "disabled";
+};
+uart4 {
+	uart4_xfer: uart4-xfer {
+	rockchip,pins =
+		<1 7 RK_FUNC_1 &pcfg_pull_up>,
+		<1 8 RK_FUNC_1 &pcfg_pull_none>;
+        };
+};
 ```
 用户只需要在kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-port.dtsi文件中使能该节点即可使用，如下：
 ```

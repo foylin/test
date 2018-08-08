@@ -7,7 +7,7 @@ Firefly-RK3399开发板外置了两个LCD屏接口，一个是EDP，一个是MIP
 
 ## Config配置
 
-以Android7.1为例，Firefly-RK3399默认的配置文件kernel/arch/arm64/configs/firefly_defconfig已经把LCD相关的配置设置好了，如果自己做了修改，请注意把以下配置加上：
+以Android7.1配置MIPI屏为例，Firefly-RK3399默认的配置文件kernel/arch/arm64/configs/firefly_defconfig已经把LCD相关的配置设置好了，如果自己做了修改，请注意把以下配置加上：
 ```
 CONFIG_LCD_MIPI=y
 CONFIG_MIPI_DSI=y
@@ -19,7 +19,7 @@ CONFIG_RK32_MIPI_DSI=y
 
 Firefly-RK3399的SDK有EDP DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-edp.dts，从该文件中我们可以看到以下语句：
 ```
-   / {
+/ {
 	model = "Firefly-RK3399 Board edp (Android)";
 	compatible = "rockchip,android", "rockchip,rk3399-firefly-edp", "rockchip,rk3399";
 
@@ -59,7 +59,7 @@ Firefly-RK3399的SDK有EDP DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchip
 
 ...
 
-   &pinctrl {
+&pinctrl {
        lcd-panel {
                lcd_panel_reset: lcd-panel-reset {
                        rockchip,pins = <4 29 RK_FUNC_GPIO &pcfg_pull_up>;
@@ -68,7 +68,7 @@ Firefly-RK3399的SDK有EDP DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchip
                        rockchip,pins = <1 1 RK_FUNC_GPIO &pcfg_pull_up>;
                };
        };
-    };
+};
 ```
 这里定义了LCD的电源控制引脚：
 
@@ -80,7 +80,7 @@ lcd_rst:(GPIO4_D5)GPIO_ACTIVE_HIGH
 ###### MIPI屏
 Firefly-RK3399的SDK有MIPI DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-mipi.dts，从该文件中我们可以看到以下语句：
 ```
-     /  {
+/  {
     model = "Firefly-RK3399 Board mipi (Android)";
     compatible = "rockchip,android", "rockchip,rk3399-firefly-mipi", "rockchip,rk3399";
 
@@ -100,7 +100,7 @@ Firefly-RK3399的SDK有MIPI DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchi
                 bus-format = <MEDIA_BUS_FMT_RGB666_1X18>;
                 dsi,lanes = <4>;
 ...
-                power_ctr: power_ctr {
+               power_ctr: power_ctr {
                rockchip,debug = <1>;
                lcd_en: lcd-en {
                        gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
@@ -114,8 +114,7 @@ Firefly-RK3399的SDK有MIPI DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchi
                                            pinctrl-0 = <&lcd_panel_reset>;
                        rockchip,delay = <6>;
                };
-                };
-
+          };
 ...
 
    &pinctrl {
@@ -127,7 +126,7 @@ Firefly-RK3399的SDK有MIPI DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchi
                        rockchip,pins = <1 1 RK_FUNC_GPIO &pcfg_pull_up>;
                };
        };
-    };
+};
 ```
 这里定义了LCD的电源控制引脚：
 ```
@@ -199,6 +198,7 @@ default-brightness-level属性：开机时默认背光亮度，范围为0-255。
 * kernel
 把 Timing 写在 panel-simple.c 中， 直接以短字符串匹配
 在drivers/gpu/drm/panel/panel-simple.c文件中有以下语句：
+
 ```
 static const struct drm_display_mode lg_lp079qx1_sp0v_mode = {
 	.clock = 200000,
@@ -230,16 +230,16 @@ static const struct panel_desc lg_lp097qx1_spa1 = {
 		.compatible = "simple-panel",
 		.data = NULL,
 	},{
-......
+
 	}, {
 		.compatible = "lg,lp079qx1-sp0v",
 		.data = &lg_lp079qx1_sp0v,
 	}, {
-......
+
 	}, {
 		/* sentinel */
 	}
- };
+};
 ```
 MODULE_DEVICE_TABLE(of, platform_of_match); 时序的参数在结构体lg_lp079qx1_sp0v_mode中配置。
 
@@ -247,6 +247,7 @@ MODULE_DEVICE_TABLE(of, platform_of_match); 时序的参数在结构体lg_lp079q
 
 把 Timing 写在 rockchip_panel.c 中， 直接以短字符串匹配
 在drivers/video/rockchip_panel.c文件中有以下语句：
+
 ```
 static const struct drm_display_mode lg_lp079qx1_sp0v_mode = {
 	.clock = 200000,
@@ -299,6 +300,7 @@ disp_timings: display-timings {
 * Kernel
 
 在kernel/drivers/gpu/drm/panel/panel-simple.c中可以看到在初始化函数panel_simple_probe中初始化了获取时序的函数。
+
 ```
 static int panel_simple_probe(struct device *dev, const struct panel_desc *desc){
 ···
@@ -307,6 +309,7 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 }
 ```
 该函数的在kernel/drivers/gpu/drm/panel/panel-simple.c中也有定义：
+
 ```
 static int panel_simple_get_timings(struct drm_panel *panel,unsigned int num_timings,struct display_timing *timings)
 {
@@ -336,8 +339,7 @@ mipi屏上完电后需要发送初始化指令才能使之工作。
 可以在kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-mipi.dts中可以看到mipi的初始化指令列表：
 ```
 &mipi_dsi {    
-            status = "okay";
-        
+            status = "okay";      
         ...
             panel-init-sequence = [                
                 05 20 01 29                
@@ -349,7 +351,7 @@ mipi屏上完电后需要发送初始化指令才能使之工作。
                 05 78 01 10            
             ];
         ...
-        };
+};
 ```
 命令格式以及说明可参考以下附件：
 

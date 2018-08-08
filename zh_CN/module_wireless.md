@@ -48,7 +48,7 @@ SLM630B USB 4G模组补丁链接：[补丁](https://pan.baidu.com/s/1qYDl7as)
 ![](img/module_wireless4.png)
 * Mini-PCIe接口连接
 ![](img/module_wireless2.jpg)
-##  EC20 4G模组套件
+##  [EC20 4G模组套件](https://store.t-firefly.com/goods.php?id=49)
 ### 产品参数
 *    型号
       *  EC20-C R2.0 Mini PCIe-C
@@ -90,7 +90,7 @@ SLM630B USB 4G模组补丁链接：[补丁](https://pan.baidu.com/s/1qYDl7as)
 
 官网的公版固件默认支持EC20 USB 4G模组。
 EC20 USB 4G模组补丁链接：[补丁](https://pan.baidu.com/s/1eS2G9Ya)
-## [GPS模块](https://item.taobao.com/item.htm?spm=a1z10.3-c.w4002-12588694689.80.kBfMcT&id=542072212548)
+## [GPS模块](https://store.t-firefly.com/goods.php?id=43)
 ### 产品参数
 ![](img/module_wireless5.png)
 ### 参考固件

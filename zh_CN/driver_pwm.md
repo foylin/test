@@ -13,14 +13,14 @@ RK3399的 PWM 驱动为： kernel/drivers/pwm/pwm-rockchip.c
 
 在 DTS 源文件kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-demo.dtsi 添加 PWM DTS 配置，如下所示：
 ```
-  pwm_demo: pwm_demo {   
-       status = "okay";   
-       compatible = "firefly,rk3399-pwm";   
-       pwm_id = <1>;   
-       min_period = <0>;   
-       max_period = <10000>;   
-       duty_ns = <5000>;   
-  };
+pwm_demo: pwm_demo {   
+	status = "okay";   
+    compatible = "firefly,rk3399-pwm";   
+    pwm_id = <1>;   
+    min_period = <0>;   
+    max_period = <10000>;   
+    duty_ns = <5000>;   
+};
 ```
 
 * pwm_id：需要申请的pwm通道数。
@@ -34,68 +34,70 @@ RK3399的 PWM 驱动为： kernel/drivers/pwm/pwm-rockchip.c
 
 (1)、在要使用 PWM 控制的设备驱动文件中包含以下头文件：  
 ```
-    #include <linux/pwm.h>
+#include <linux/pwm.h>
 ```
 该头文件主要包含 PWM 的函数接口。
 
 (2)、申请 PWM  
 使用
 ```
-    struct pwm_device *pwm_request(int pwm_id, const char *label);
+struct pwm_device *pwm_request(int pwm_id, const char *label);
 ```
 函数申请 PWM。 例如：
 ```
-    struct pwm_device * pwm1 = NULL;pwm0 = pwm_request(1, “firefly-pwm”);
+struct pwm_device * pwm1 = NULL;pwm0 = pwm_request(1, “firefly-pwm”);
 ```
 
 (3)、配置 PWM  
 使用  
 ```
-    int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns);
+int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns);
 ```
 配置 PWM 的占空比，
 例如：
 ```
-    pwm_config(pwm0, 500000, 1000000)；
+pwm_config(pwm0, 500000, 1000000)；
 ```
 
 (4)、使能PWM   函数  
 ```
-    int pwm_enable(struct pwm_device *pwm);
+int pwm_enable(struct pwm_device *pwm);
 ```
 用于使能 PWM，例如：  
 ```
-    pwm_enable(pwm0);
+pwm_enable(pwm0);
 ```
 
 (5)控制 PWM 输出主要使用以下接口函数：  
 ```
-    struct pwm_device *pwm_request(int pwm_id, const char *label);
+struct pwm_device *pwm_request(int pwm_id, const char *label);
 ```
-功能：用于申请 pwm
-(6)
-```
-    void pwm_free(struct pwm_device *pwm);
-```
-功能：用于释放所申请的 pwm  
 
-(7)
-```
-    int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns);
-```
-功能：用于配置 pwm 的占空比  
+* 功能：用于申请 pwm
 
-(8)
 ```
-    int pwm_enable(struct pwm_device *pwm);
+void pwm_free(struct pwm_device *pwm);
 ```
-功能：使能 pwm  
 
-(9)
+* 功能：用于释放所申请的 pwm  
+
 ```
-    void pwm_disable(struct pwm_device *pwm);
+int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns);
 ```
-功能：禁止 pwm  
+
+* 功能：用于配置 pwm 的占空比  
+
+```
+int pwm_enable(struct pwm_device *pwm);
+```
+
+* 功能：使能 pwm  
+
+```
+void pwm_disable(struct pwm_device *pwm);
+```
+
+* 功能：禁止 pwm  
 
 
 ###### 参考Demo：kernel/drivers/pwm/pwm-firefly.c

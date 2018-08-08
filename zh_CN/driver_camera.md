@@ -215,9 +215,9 @@ libisp_isi_drv_OV13850.so
 ```
 注册标识不一致即可,可填写以下值：
 ```
-    CAMSYS_DEVID_SENSOR_1A
-    CAMSYS_DEVID_SENSOR_1B
-    CAMSYS_DEVID_SENSOR_2
+CAMSYS_DEVID_SENSOR_1A
+CAMSYS_DEVID_SENSOR_1B
+CAMSYS_DEVID_SENSOR_2
 ```
  
    *  采集控制器名称
@@ -226,7 +226,7 @@ libisp_isi_drv_OV13850.so
 ```
 目前只支持：
 ```
-    CAMSYS_DEVID_MARVIN
+CAMSYS_DEVID_MARVIN
 ```
 
  *  Sensor 所连接的主控 I2C 通道号
@@ -237,12 +237,12 @@ libisp_isi_drv_OV13850.so
 
   *  Sensor 寄存器地址长度,单位：字节
 ```
-    <SensorI2cAddrByte byte="2"></SensorI2cAddrByte>
+<SensorI2cAddrByte byte="2"></SensorI2cAddrByte>
 ```
 
  *   Sensor 的 I2C 频率,单位：Hz，用于设置 I2C 的频率。
 ```
-    <SensorI2cRate rate="100000"></SensorI2cRate>
+<SensorI2cRate rate="100000"></SensorI2cRate>
 ```
 
  *   Sensor 输入时钟频率, 单位：Hz，用于设置摄像头的时钟。
@@ -252,7 +252,7 @@ libisp_isi_drv_OV13850.so
 
   *  Sensor AVDD 的 PMU LDO 名称。如果不是连接到 PMU，那么只需填写 NC。
 ```
-    <SensorAvdd name="NC" min="0" max="0"></SensorAvdd>
+<SensorAvdd name="NC" min="0" max="0"></SensorAvdd>
 ```
 
  *   Sensor DOVDD 的 PMU LDO 名称。
@@ -304,10 +304,10 @@ libisp_isi_drv_OV13850.so
 
 可填写如下值：
 ```
-    CCIR601
-    CCIR656
-    MIPI
-    SMIA
+CCIR601
+CCIR656
+MIPI
+SMIA
 ```
  
 *  Sensor 的镜像方式
@@ -322,7 +322,8 @@ libisp_isi_drv_OV13850.so
 ```
  *  物理接口设置
       
-      *  MIPI
+MIPI
+
 ```
 <SensorPhy phyMode="CamSys_Phy_Mipi" lane="2" phyIndex="1" sensorFmt="CamSys_Fmt_Raw_10b"></SensorPhy>
 ```
@@ -330,15 +331,20 @@ hyMode：Sensor 接口硬件连接方式，对 MIPI Sensor 来说，该值取 "C
 Lane：Sensor mipi 接口数据通道数
 Phyindex：Sensor mipi 连接的主控 mipi phy 编号
 sensorFmt：Sensor 输出数据格式,目前仅支持 CamSys_Fmt_Raw_10b
-     
-      *  DVP
 
+     
+DVP
+
+```
+<SensorPhy phyMode="CamSys_Phy_Cif" sensor_d0_to_cif_d ="0" cif_num="0" sensorFmt="CamSys_Fmt_Yuv422_8b"></SensorPhy>
+
+```
 phyMode： Sensor 接口硬件连接方式，DVP Sensor 接口则为：CamSys_Phy_Cif
 sensor_d0_to_cif_d：Sensor DVP 输出数据位 D0 对应连接的主控 DVP 接口的数据位号码
 cif_num：Sensor DVP 连接到主控 DVP 接口编号
 sensorFmt：Sensor 输出的数据格式,目前版本支持填写 CamSys_Fmt_Yuv422_8b
 
-编译内核需将 drivers\media\video\rk_camsys 驱动源码编进内核，其配置方法如下：
+编译内核需将 drivers/media/video/rk_camsys 驱动源码编进内核，其配置方法如下：
 
 在内核源码目录下执行命令：
 ```

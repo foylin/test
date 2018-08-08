@@ -136,8 +136,8 @@ e2fsck -f Image/system.img
 resize2fs Image/system.img
 ```
 ### 打包
-首先要检查一下 system.img 的大小，对照 parameter 文件的分区情况(可参考文档[Parameter 文件格式](http://www.t-firefly.com/download/firefly-rk3288/rockchip/Rockchip%20Parameter%20File%20Format%20Ver1.3.pdf)），作必要的大小调整。   
-例如，rk3288-3.10-uboot-data1G.parameter.txt 文件里的 system 分区大小，可以找到 CMDLINE 一行，然后找到 system 字符串：
+首先要检查一下 system.img 的大小，对照 parameter 文件的分区情况(可参考文档[Parameter 文件格式](http://www.t-firefly.com/download/Firefly-RK3399/docs/Rockchip%20Parameter%20File%20Format%20Ver1.3.pdf)，作必要的大小调整。   
+例如，parameter.txt 文件里的 system 分区大小，可以找到 CMDLINE 一行，然后找到 system 字符串：
 ```
 0x00200000@0x000B0000(system)
 ```
@@ -147,7 +147,7 @@ $ echo $(( 0x00200000 * 512 / 1024 / 1024))M
 1024M
 ```
 
-只要 system.img 的大小不超过 768M，parameter 文件就不用更改。   
+只要 system.img 的大小不超过 1024M，parameter 文件就不用更改。   
 如果分区不用更改，可以直接用烧写工具将新的 system.img 烧写到开发板的 system 分区上做试验。否则，需要制作新固件并烧写后再行测试。   
 以下是打包成统一固件 update.img 所需要的步骤： 
 

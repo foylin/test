@@ -1,5 +1,5 @@
 # 摄像头模组
-## [OV13850摄像头模组](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-10068918835.11.iovlJA&id=43431164358)
+## [OV13850摄像头模组](https://store.t-firefly.com/goods.php?id=6)
 ### 产品参数
 
 * 品牌：Omnivision
@@ -17,7 +17,7 @@
 ### 实拍图片
 ![](img/module_camera3.png)
 
-## [S5K4EC摄像头模组](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-12605442688.76.4vSzUN&id=523280461536)
+## [S5K4EC摄像头模组](https://store.t-firefly.com/goods.php?id=23)
 ### 产品参数
 
 * 品牌：三星

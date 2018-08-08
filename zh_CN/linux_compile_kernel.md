@@ -80,7 +80,6 @@ root=/dev/mmcblk2p6         ---> rootfs 分区
 ```
 sudo upgrade_tool di kernel kernel.img
 sudo upgrade_tool di boot rootfs.img
-...
 
 kernel                  --->  上点 parameter 所述分区名称
 kernel.img              --->  编译生产的 kernel.img 分区镜像

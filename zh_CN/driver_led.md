@@ -40,32 +40,31 @@ Trigger 包含多种方式可以控制LED,这里就用两个例子来说明
 ```
 &power_led {                             
     gpios = <&gpio2 27 GPIO_ACTIVE_HIGH>;
-};
+	};
 
 &user_led {
     gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+	};
+
+leds {   
+	compatible = "gpio-leds";   
+	power {   
+	label = "firefly:blue:power";   
+	linux,default-trigger = "ir-power-click";   
+	default-state = "on";   
+	gpios = <&gpio2 27 GPIO_ACTIVE_HIGH>;   
+	pinctrl-names = "default";   
+	pinctrl-0 = <&led_power>;   
+	};   
+	user {   
+	label = "firefly:yellow:user";   
+	linux,default-trigger = "ir-user-click";   
+	default-state = "off";   
+	gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;   
+	pinctrl-names = "default";   
+	pinctrl-0 = <&led_user>;   
+	};
 };
-
-
-    leds {   
-      compatible = "gpio-leds";   
-      power {   
-        label = "firefly:blue:power";   
-        linux,default-trigger = "ir-power-click";   
-        default-state = "on";   
-        gpios = <&gpio2 27 GPIO_ACTIVE_HIGH>;   
-        pinctrl-names = "default";   
-        pinctrl-0 = <&led_power>;   
-        };   
-      user {   
-        label = "firefly:yellow:user";   
-        linux,default-trigger = "ir-user-click";   
-        default-state = "off";   
-        gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;   
-        pinctrl-names = "default";   
-        pinctrl-0 = <&led_user>;   
-        };
-   };
 ```
 注意：compatible 的值要跟 drivers/leds/leds-gpio.c 中的 .compatible 的值要保持一致。
 ### Simple trigger LED

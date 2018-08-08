@@ -1,4 +1,4 @@
-# 红外遥控器
+# [红外遥控器](https://store.t-firefly.com/goods.php?id=17)
 ### 产品参数
 * 产品：12键红外遥控器
 * 版本：Firefly定制版

@@ -8,7 +8,7 @@ sudo apt-get install qemu-user-static
 ```
 ### 下载和解压 ubuntu-core
 
-Firefly-rk3399 ubuntu根文件系统是基于Ubuntu base 16.04来创建的。用户可以到ubuntu cdimg 下载，选择下载ubuntu-base-16.04.1-base-arm64.tar.gz 。
+Firefly-rk3399 ubuntu根文件系统是基于Ubuntu base 16.04来创建的。用户可以到[ubuntu cdimg](http://cdimage.ubuntu.com/ubuntu-base/releases/16.04/release/) 下载，选择下载ubuntu-base-16.04.1-base-arm64.tar.gz 。
 
 下载完之后，创建临时文件夹并解压根文件系统：
 ```

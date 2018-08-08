@@ -1,6 +1,6 @@
 # 屏幕模组
 
-## [7.85寸EDP液晶屏模组](https://item.taobao.com/item.htm?spm=a1z10.1-c.w9352831-12693190990.18.Ox12kh&id=530507961766)
+## 7.85寸EDP液晶屏模组
 
 ###  产品参数
 * 型号：LP079QX1
@@ -18,12 +18,6 @@
 ### 编译命令
 
 用官网SDK编译支持的7.85寸屏的固件时需用如下编译命令：
-
-*    Android 6.0
-```
-  ./FFTools/make.sh -j8 -d rk3399-firefly-edp
-  ./FFTools/mkupdate/mkupdate.sh
-```
 
 * Android 7.1
 ```

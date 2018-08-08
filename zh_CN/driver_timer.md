@@ -19,13 +19,13 @@ free-running：Timer先载入初始值到TIMER_LOAD_COUNT3 和 TIMER_LOAD_COUNT2
 1.在 dts 文件中定义 Timer 的相关配置 kernel/arch/arm64/boot/dts/rockchip/rk3399.dtsi
 
 ```
-	rktimer: rktimer@ff850000 {
-		compatible = "rockchip,rk3399-timer";
-		reg = <0x0 0xff850000 0x0 0x1000>;
-		interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH 0>;
-		clocks = <&cru PCLK_TIMER0>, <&cru SCLK_TIMER00>;
-		clock-names = "pclk", "timer";
-	};
+rktimer: rktimer@ff850000 {
+	compatible = "rockchip,rk3399-timer";
+	reg = <0x0 0xff850000 0x0 0x1000>;
+	interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH 0>;
+	clocks = <&cru PCLK_TIMER0>, <&cru SCLK_TIMER00>;
+	clock-names = "pclk", "timer";
+};
 ```
 其中定义的Timer0 的寄存器和中断号和时钟等
 
