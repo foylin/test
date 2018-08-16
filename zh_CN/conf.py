@@ -113,7 +113,10 @@ html_theme_options = {
         'product_regula': 'http://download.t-firefly.com/%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E6%96%87%E6%A1%A3/Firefly-RK3399%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf',
         'product_buy_lang': '立即购买',
         'product_regula_lang': '产品规格书',
-        'logo_href':'http://wiki.t-firefly.com/'
+        'logo_href':'http://wiki.t-firefly.com/',
+        'download_show':'True',
+        'download_name':'资源下载',
+        'download_href':'http://www.t-firefly.com/doc/download/page/id/3.html'
     }
 
 

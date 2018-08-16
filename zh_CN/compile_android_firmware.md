@@ -54,9 +54,8 @@ libssl1.0.0 libssl-dev
   
 ## 下载 Android SDK  
 
-由于 SDK 比较大，请选择以下云盘之一下载 Firefly-RK3399_Android7.1.2_git_20180126.7z ：
-
-   [Android7.1 SDK下载](https://pan.baidu.com/s/1ZS130eZcNDmKvBN55oZ5Bg#list/path=%2F)
+**Android SDK 源码包比较大,可以通过如下方式获取Android7.1源码包：**
+* [[下载链接]](http://www.t-firefly.com/doc/download/page/id/3.html#other_18)
 
 下载完成后先验证一下 MD5 码：
 ```

@@ -16,7 +16,7 @@
 
 * 单个统一固件 update.img, 将启动加载器、参数和所有分区镜像都打包到一起，用于固件发布。
 * 多个分区镜像,如 kernel.img, rootfs.img, recovery.img 等，在开发阶段生成。
-* 可以在这里找到[已编译好的统一固件](download.html)，下载后解压。也可以参考编译固件的说明自行编译。
+* 可以在这里找到已编译好的统一[[RK3399固件]](http://www.t-firefly.com/doc/download/page/id/3.html#other_14)，下载后解压。也可以参考编译固件的说明自行编译。
 
 主机操作系统支持：
 > * Windows XP （32/64位）
@@ -36,7 +36,7 @@
 
 ### 安装 RK USB 驱动
 
-下载 [ Release_DriverAssistant.zip](https://pan.baidu.com/s/1geKZFz1#list/path=%2F) ，解压，然后运行里面的 DriverInstall.exe 。   
+下载 [ Release_DriverAssistant.zip](http://www.t-firefly.com/doc/download/page/id/3.html#other_11) ，解压，然后运行里面的 DriverInstall.exe 。   
 为了所有设备都使用更新的驱动，请先选择"驱动卸载"，然后再选择"驱动安装"。   
 
 ![](img/upgrade_firmware1.png)
@@ -63,7 +63,7 @@
 
 ## 烧写固件
 
-下载 [AndroidTool](https://pan.baidu.com/s/1vdElHfxKWBwZWs3tOIYUKw#list/path=%2F)，解压，运行 AndroidTool_Release_v2.38 目录里面的 AndroidTool.exe（注意，如果是 Windows 7/8,需要按鼠标右键，选择以管理员身份运行），如下图：   
+下载 [AndroidTool](http://www.t-firefly.com/doc/download/page/id/3.html#windows_12)，解压，运行 AndroidTool_Release_v2.38 目录里面的 AndroidTool.exe（注意，如果是 Windows 7/8,需要按鼠标右键，选择以管理员身份运行），如下图：   
 ![](img/upgrade_firmware3.png)
 
 ### 烧写统一固件 update.img
@@ -105,7 +105,7 @@ RK 提供了一个 Linux 下的命令行工具 upgrade_tool，支持统一固件
 
 ### upgrade_tool
 
-下载 [Linux_Upgrade_Tool](https://pan.baidu.com/s/1c1PP49i#list/path=%2F), 并按以下方法安装到系统中，方便调用：   
+下载 [Linux_Upgrade_Tool](http://www.t-firefly.com/doc/download/page/id/3.html#linux_12), 并按以下方法安装到系统中，方便调用：   
 ```
 unzip Linux_Upgrade_Tool_v1.24.zip
 cd Linux_UpgradeTool_v1.24

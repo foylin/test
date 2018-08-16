@@ -80,10 +80,3 @@ Welcome to Firefly-RK3399 Manual
    interface_definition
    hardware_doc
 
-.. toctree::
-   :glob:
-   :maxdepth: 2
-   :caption: 资源下载
-   
-   download
-
