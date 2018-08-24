@@ -1,4 +1,4 @@
-# 串口模块
+# 转换模块
 ## [USB转TTL串口模块](https://store.t-firefly.com/goods.php?id=24)
 ### 产品参数
 * 品牌：Firefly
