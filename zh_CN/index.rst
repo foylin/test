@@ -23,7 +23,8 @@ Welcome to Firefly-RK3399 Manual
    :caption: Linux开发
    
    linux_build_ubuntu_rootfs
-   linux_compile_kernel
+   linux_compile_parameter
+   linux_compile_gpt
 
 .. toctree::
    :glob:
