@@ -73,7 +73,7 @@ git reset --hard
 注意：解压后务必要先更新下远程仓库。
 以下为从 gitlab 处更新的方法：
 ```
-git remote rm origin 
+git remote rm gitlab
 git remote add gitlab https://gitlab.com/TeeFirefly/FireNow-Nougat.git  
 git pull gitlab firefly-rk3399:firefly-rk3399
 ```
