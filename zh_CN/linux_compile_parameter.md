@@ -35,17 +35,14 @@ $ git clone -b master https://github.com/T-Firefly/prebuilts.git
 ```
 *  获取 Kernel
 ```
-Stable version:
 $ git clone -b firefly https://github.com/FireflyTeam/kernel.git
-Development version:
-$ git clone -b firefly-dev https://github.com/FireflyTeam/kernel.git
 ```
 * 获取 U-Boot
 ```
 $ git clone -b master https://github.com/FireflyTeam/u-boot.git
 ```
-RK3399 系列也可使用 Android 7.1 u-boot源码
-* Rootfs 可通过 Android_Tool 高级功能来解包官方发布固件获取 rootfs.img
+RK3399 系列也可使用 Android 7.1 u-boot源码, 配置文件 `rk3399_linux_defconfig`
+* Rootfs 可通过 Android_Tool 高级功能来解包官方发布固件获取 `rootfs.img`
 
 ## 编译 Kernel
 #### RK3399 系列

@@ -34,7 +34,7 @@ $ tree
 # build
 $ git clone -b debian https://github.com/FireflyTeam/build.git
 # kernel
-$ git clone -b firefly-dev https://github.com/FireflyTeam/kernel.git
+$ git clone -b firefly https://github.com/FireflyTeam/kernel.git
 # rkbin
 $ git clone -b master https://github.com/FireflyTeam/rkbin.git
 # u-boot
