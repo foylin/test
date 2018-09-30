@@ -9,6 +9,20 @@ adb，全称 Android Debug Bridge，是 Android 的命令行调试工具，可�
 在开发板上进入选项->开发人员选项，勾上 "USB 调试" 选项。  
 Firefly-RK3399用Type-C数据线连接设备和主机。
 
+### Android8.1
+
+*	设置->系统->关于平板->点击5下版本号->系统->开发者选项->Root授权->打开ADB
+*	连接命令:
+```
+(首次启动)
+adb root
+adb disable-verity
+adb reboot
+(重启后)
+adb root
+adb remount
+```
+
 ##### 网络ADB
 
 *    设置->开发者选项->网络ADB调试

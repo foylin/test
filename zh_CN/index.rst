@@ -33,6 +33,7 @@ Welcome to Firefly-RK3399 Manual
    
    adb_use
    compile_android_firmware
+   compile_android8.1_firmware
    customize_android_firmware
    
 .. toctree::
