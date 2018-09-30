@@ -63,7 +63,7 @@
 
 ## 烧写固件
 
-下载 [AndroidTool](http://www.t-firefly.com/doc/download/page/id/3.html#windows_12)，解压，运行 AndroidTool_Release_v2.38 目录里面的 AndroidTool.exe（注意，如果是 Windows 7/8,需要按鼠标右键，选择以管理员身份运行），如下图：   
+下载 [AndroidTool](http://www.t-firefly.com/doc/download/page/id/3.html#windows_12)(若系统是Android8.1则需要2.54以上版本)，解压，运行 AndroidTool_Release_v2.38 目录里面的 AndroidTool.exe（注意，如果是 Windows 7/8,需要按鼠标右键，选择以管理员身份运行），如下图：   
 ![](img/upgrade_firmware3.png)
 
 ### 烧写统一固件 update.img
@@ -105,7 +105,7 @@ RK 提供了一个 Linux 下的命令行工具 upgrade_tool，支持统一固件
 
 ### upgrade_tool
 
-下载 [Linux_Upgrade_Tool](http://www.t-firefly.com/doc/download/page/id/3.html#linux_12), 并按以下方法安装到系统中，方便调用：   
+下载 [Linux_Upgrade_Tool](http://www.t-firefly.com/doc/download/page/id/3.html#linux_12)(系统是Android8.1则需要Linux_Upgrde_Tool_for_android8.1), 并按以下方法安装到系统中，方便调用：   
 ```
 unzip Linux_Upgrade_Tool_v1.24.zip
 cd Linux_UpgradeTool_v1.24
