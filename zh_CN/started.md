@@ -63,3 +63,6 @@ A5:RK3399 芯片技术手册链接：[Brief](http://www.t-firefly.com/download/F
 A6:MAC地址可以让用户自己更改，请先进入升级模式（参照升级固件中连接设备的方法），后使用工具 [WNpctool](https://pan.baidu.com/s/1kU727kF#list/path=%2F) 烧写MAC地址。
 ### Q7:Ubuntu系统，如果插入耳机后，没有声音，该如何处理？
 A7:Menu->Multimedia->PulseAudio Volume Control->Configuration->选择正在工作的声卡，关闭另一个声卡
+### Q8:Android下如何让系统抓去LOG？
+A8:Settings(设置)->About phone(关于手机)->点击5下Build number(版本号)->Developer options(开发者选项)->Enable logging to save(启用日志保存)
+打开功能后，系统的storage根目录下就会生成.LOGSAVE文件夹，里面包括系统logcat和内核kmsg。
