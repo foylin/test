@@ -16,6 +16,7 @@ Welcome to Firefly-RK3399 Manual
    upgrade_firmware
    bootmode
    maskrom_mode
+   faqs.md
 
 .. toctree::
    :glob:
