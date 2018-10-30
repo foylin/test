@@ -134,13 +134,13 @@ parameter 分区对应的起始地址，是否相对应
 #### RK3399 系列
 * AIO-3399J
 ```
-|--- rk3399-firefly-aio-3399j.dts
-|--- rk3399-firefly-aio-3399j-lvds.dts (LVDS HSX101H40C)
+|--- rk3399-firefly-aio.dts
+|--- rk3399-firefly-aio-lvds.dts (LVDS HSX101H40C)
 ```
 * AIO-3399C
 ```
-|--- rk3399-firefly-aio-3399c.dts
-|--- rk3399-firefly-aio-3399c-lvds.dts (LVDS HSX101H40C)
+|--- rk3399-firefly-aioc.dts
+|--- rk3399-firefly-aioc-lvds.dts (LVDS HSX101H40C)
 ```
 * Firefly-RK3399
 ```
@@ -151,14 +151,14 @@ parameter 分区对应的起始地址，是否相对应
 #### RK3288 系列
 * AIO-3288J
 ```
-|--- rk3288-firefly-aio-3288j.dts
-|--- rk3288-firefly-aio-3288j-lvds.dts (LVDS HSX101H40C)
+|--- rk3288-firefly-aio.dts
+|--- rk3288-firefly-aio-lvds.dts (LVDS HSX101H40C)
 ```
 * AIO-3288C
 ```
-|--- rk3288-firefly-aio-3288C.dts
-|--- rk3288-firefly-aio-3288C-lvds.dts (LVDS HSX101H40C)
-|--- rk3288-firefly-aio-3288C-vga.dts (VGA)
+|--- rk3288-firefly-aioc.dts
+|--- rk3288-firefly-aioc-lvds.dts (LVDS HSX101H40C)
+|--- rk3288-firefly-aioc-vga.dts (VGA)
 ```
 * Firefly-RK3288
 ```
