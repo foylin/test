@@ -53,7 +53,7 @@ Firefly-RK3399 使用以下串口参数：
 Windows 上一般用 putty 或 SecureCRT。其中 putty 是开源软件，在这里介绍一下，SecureCRT 的使用方法与之类似。
 到这里[下载 putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)，建议下载 `putty.zip`，它包含了其它有用的工具。
 
-解压后运行 PUTTY.exe，选择 Connection type（连接类型）为 Serial（串口），将 Serial line（串口线）设置成设备管理器所看到的  COM 口，并将 Speed（波特率）设置为 115200，按 Open（打开）即可:   
+解压后运行 PUTTY.exe，选择 Connection type（连接类型）为 Serial（串口），将 Serial line（串口线）设置成设备管理器所看到的  COM 口，并将 Speed（波特率）设置为 1500000，按 Open（打开）即可:
 
 ![](img/debug3.png)
 

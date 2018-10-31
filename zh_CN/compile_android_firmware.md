@@ -67,7 +67,7 @@ $ md5sum /path/to/Firefly-RK3399_Android7.1.2_git_20180126.7z
 ```
 mkdir -p ~/proj/firefly-rk3399
 cd ~/proj/firefly-rk3399
-7z x /path/to/Firefly-RK3399_Android7.1.2_git_20180126.7z
+7z x /path/to/Firefly-RK3399_Android7.1.2_git_20180126.7z -r -o./
 git reset --hard
 ```
 注意：解压后务必要先更新下远程仓库。

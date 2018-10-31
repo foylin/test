@@ -14,11 +14,11 @@ Firefly-RK3399用Type-C数据线连接设备和主机。
 *	设置->系统->关于平板->点击5下版本号->系统->开发者选项->Root授权->打开ADB
 *	连接命令:
 ```
-(首次启动)
+1.(首次启动) --更新SDK到(commit 8034582b4cf130132af20b212af7854af5746bcc)后可以跳过步骤1直接进入步骤2
 adb root
 adb disable-verity
 adb reboot
-(重启后)
+2.(重启后)
 adb root
 adb remount
 ```
@@ -93,6 +93,11 @@ adb devices
 ```
 export ANDROID_SERIAL=<设备序列号>
 adb shell ls
+```
+
+多设备下连接指定设备
+```
+adb -s 序列号 shell
 ```
 
 可以通过网络来连接 adb：
