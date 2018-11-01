@@ -75,7 +75,7 @@ git reset --hard
 注意：解压后务必要先更新下远程仓库。
 以下为从 gitlab 处更新的方法：
 ```
-git remote add gitlab git@gitlab.com:TeeFirefly/firenow-oreo-rk3399.git 
+git remote add gitlab https://gitlab.com/TeeFirefly/firenow-oreo-rk3399.git
 git pull gitlab firefly-rk3399:firefly-rk3399
 ```
 也可以到 [[https://gitlab.com/TeeFirefly/firenow-oreo-rk3399#]](https://gitlab.com/TeeFirefly/firenow-oreo-rk3399#) 在线浏览源码。 
