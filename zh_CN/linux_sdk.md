@@ -1,4 +1,4 @@
-# 编译 Ubuntu 18.04 固件( GPT )
+# 编译 Ubuntu 固件( GPT )
 
 为了方便用户的使用与开发，官方提供了Linux开发的整套sdk，本章详细的说明SDK的具体用法。
 
@@ -260,6 +260,9 @@ mv rk3399_ubuntu18.04_LXDE.img ubunturootfs/
 **注意**:ubuntu根文件系统镜像存放路径不能错
 
 运行`./mkfirmware.sh`会自动更新`rockdev/rootfs.img`的链接
+
+如果需要Ubuntu16.04的根文件系统，请下载[Ubuntu16.04固件](https://pan.baidu.com/s/17A40It6bJL5__ZSEikPtxA#list/path=%2F)，解包请参考[定制Android](customize_android_firmware.html#jie-bao)下的解包，修改`device/rockchip/rk3399/firefly-rk3399-ubuntu.mk`下的rootfs路径，然后运行`./mkfirmware.sh`会自动更新`rockdev/rootfs.img`的链接
+
 ### 同步更新各部分镜像
 每次打包固件前先确保`rockdev/`目录下文件链接是否正确:
 ```
@@ -297,14 +300,37 @@ error: /home/ljh/proj/linux-sdk/buildroot/output/rockchip_rk3399_recovery/images
 ```
 ./build.sh updateimg
 ```
+
+<a id="ubuntu_upgrade"></a>
 ## 升级固件
+
+### 固件下载
+
+统一固件可以由SDK编译生成，也可以下载由Firefly官方提供的统一固件。
+
+下面的固件由Firefly官方提供。
+
+* Ubuntu18.04固件[下载链接](https://pan.baidu.com/s/1PXbZXMAnU3k-KaNl4TgeAA)                                                        
+* Ubuntu16.04固件[下载链接](https://pan.baidu.com/s/17A40It6bJL5__ZSEikPtxA#list/path=%2F)
+
+其中Ubuntu18.04固件由[编译Ubuntu固件(GPT)](linux_sdk.html)中的SDK编译生成的，Ubuntu16.04固件由[编译Ubuntu固件(MBR)](linux_compile_mbr.html)中的SDK编译生成的。[编译Ubuntu固件(GPT)](linux_sdk.html)中的SDK为新的SDK，[编译Ubuntu固件(MBR)](linux_compile_mbr.html)中的SDK为旧的SDK。
+
+**注意：由于烧写这两个SDK编译生成的固件所用到的工具有所不同，如果需要烧写由SDK编译生成的统一固件请按照官方提供的固件烧写方式烧写。**
+
+下面的内容以烧写[编译Ubuntu固件(GPT)](linux_sdk.html)中的SDK编译生成的统一固件（Ubuntu18.04固件）为例。
 
 ### 工具下载
 
-* Windows [AndroidTool_2.58](http://download.t-firefly.com/product/RK3399/Tools/AndroidTool/AndroidTool_Release_v2.58.zip)
-* Linux [upgrade_tool_1.34](http://download.t-firefly.com/product/RK3399/Tools/Linux_Upgrade_Tool/Linux_Upgrade_Tool_1.34.zip)
+* Windows [AndroidTool](http://download.t-firefly.com/product/RK3399/Tools/AndroidTool/AndroidTool_Release_v2.58.zip)
+* Linux [upgrade_tool](http://download.t-firefly.com/product/RK3399/Tools/Linux_Upgrade_Tool/Linux_Upgrade_Tool_1.34.zip)
 
-Windows升级
+**烧写Ubuntu18.04在Windows环境下请使用AndroidTool_2.58,Linux环境下请使用upgrade_tool_1.34。**                                                                    
+
+**烧写Ubuntu16.04在Windows环境下请使用AndroidTool_2.38,Linux环境下请使用upgrade_tool_1.24。** 
+
+升级固件需要进入升级模式，请参考[《升级固件》]下的如何进入升级模式。
+
+### Windows
 
 下载 AndroidTool.rar后,解压，运行里面的 AndroidTool.exe（注意，如果是Windows7/8,需要按鼠标右键，选择以管理员身份运行），如下图： 
 
@@ -312,7 +338,7 @@ Windows升级
 
 注意：Windows需要安装RKUSB驱动，请参考[《升级固件》]下的安装RKUSB驱动，设备烧写固件或分区镜像时，需处于Loader模式或Maskroom模式
 
-### 烧写统一固件 
+#### 烧写统一固件 
 
 烧写统一固件 update.img 的步骤如下:
 
@@ -321,12 +347,14 @@ Windows升级
 3. 按"升级"按钮开始升级。(原固件为Android的情况下，升级ubuntu固件请执行第四步。)
 4. 如果升级失败，可以尝试先按"擦除Flash"按钮来擦除 Flash，然后再升级。
 
-**注意：如果你烧写的固件laoder版本与原来的机器的不一致，请在升级固件前先执行"擦除Flash"。烧写相同系统不需要擦除，更换系统需要擦除原系统**   
+**注意：如果你烧写的固件laoder版本与原来的机器的不一致，请在升级固件前先执行"擦除Flash"。**   
+
+由于不同的SDK编译生成的统一固件不一样，所以烧写和擦除工具也不一样。
 
 原固件为Android7.1或者Ubuntu16.04情况下：
 
-* 烧写Android8.1或者Ubuntu18.04，需要在[AndroidTool_2.38](http://download.t-firefly.com/product/RK3399/Tools/AndroidTool/AndroidTool_Release_v2.38.rar)上擦除Flash，然后在AndroidTool_2.58上烧写(如果出现下载Boot失败，请重启后再擦除一次)。
-* 烧写Android7.1固件或者Ubuntu16.04固件在AndroidTool_2.38上烧写。
+* 烧写Ubuntu18.04，需要先在[AndroidTool_2.38](http://download.t-firefly.com/product/RK3399/Tools/AndroidTool/AndroidTool_Release_v2.38.rar)上擦除Flash，然后在AndroidTool_2.58上烧写(如果出现下载Boot失败，请重启后再擦除或者烧写一次)。
+* 烧写Android7.1固件或者Ubuntu16.04固件在AndroidTool_2.38上擦除或者烧写。
 
 ![](img/AndroidTool_2.38_Arase.PNG)
 
@@ -336,7 +364,7 @@ Windows升级
 
 ![](img/AndroidTool_2.58_upgrade.PNG)
 
-### 烧写分区映像
+#### 烧写分区映像
 
 烧写分区映像的步骤如下：
 
@@ -347,40 +375,41 @@ Windows升级
 
 ![](img/AndroidTool_2.58_partition.png)
 
-## Linux
+**注意：烧写编译Ubuntu固件(MBR)下编译生成的分区请参考[编译Ubuntu固件(MBR)](linux_compile_mbr.html)下的烧写分区。**
+### Linux
 
 成功进入升级模式主机会检测到新的usb设备
 
 <a id="upgrade_and_upgrade_tool"></a>
 
-### 准备工具
+#### 准备工具
 
 * 下载[upgrade_tool_1.34](http://download.t-firefly.com/product/RK3399/Tools/Linux_Upgrade_Tool/Linux_Upgrade_Tool_1.34.zip)
 
 ```
-unzip Linux_Upgrade_Tool_v1.34.zip
-sudo mv Linux_Upgrade_Tool/Linux_Upgrade_Tool/upgrade_tool /usr/local/bin
+unzip Linux_Upgrade_Tool_v1.34.zip      #解压
+sudo mv Linux_Upgrade_Tool/Linux_Upgrade_Tool/upgrade_tool /usr/local/bin #移动到/usr/local/bin
 sudo chown root:root /usr/local/bin/upgrade_tool
 ```
 #### 烧写统一固件update.img：
 
-* 进入[Maskrom]模式或[RKUSB]模式、烧写RK 固件(只有loder损坏才需要使用Maskrom)。
+* 进入[Maskrom]模式或升级模式、烧写统一固件(只有loder损坏才需要使用Maskrom)。
 
 ```
 sudo upgrade_tool uf update.img
 sudo upgrade_tool rd     # 重置并启动设备
 ```
-**注意:如果你烧写的固件laoder版本与原来的机器的不一致，请在升级固件前先执行"擦除Flash"。烧写相同系统不需要擦除，更换系统需要擦除原系统**  
+**注意:如果你烧写的固件laoder版本与原来的机器的不一致，请在升级固件前先执行"擦除Flash"。**  
 
 **原固件为Android 7.1或者Ubuntu 16.04的情况下,烧写Android 8.1固件或者Ubuntu 18.04前需要Upgrade_tool_1.24进行擦除Flash，请执行以下操作: 进入升级模式**
 
 * 下载[Upgrade_Tool_1.24](http://download.t-firefly.com/product/RK3399/Tools/Linux_Upgrade_Tool/Linux_Upgrade_Tool_v1.24.zip)
 ```
 unzip Linux_Upgrade_Tool_v1.24.zip
-sudo mv Linux_Upgrade_Tool_v1.24/upgrade_tool /usr/local/bin/upgrade_tool_1.24
+sudo mv Linux_Upgrade_Tool_v1.24/upgrade_tool /usr/local/bin/upgrade_tool_1.24 #移动到/usr/local/bin，并重命名为upgrade_tool_1.24
 sudo chmod 755 /usr/local/bin/upgrade_tool_1.24
 ```
-* 烧写Android 8.1固件或者Ubuntu 18.04
+* 烧写Ubuntu 18.04
 ```
 sudo upgrade_tool_1.24 ef update.img        # 使用upgrade_tool_1.24擦除
 sudo upgrade_tool uf update.img             # 烧写
@@ -392,7 +421,7 @@ sudo upgrade_tool uf update.img             # 烧写
 sudo upgrade_tool_1.24 ef update.img        # 使用upgrade_tool_1.24擦除
 sudo upgrade_tool_1.24 uf update.img        # 使用upgrade_tool_1.24烧写
 ```
-**原固件为Android8.1或者Ubuntu 18.04的情况下,烧写其他固件请执行以下操作: 进入升级模式**
+**原固件为Android8.1或者Ubuntu 18.04的情况下,使用Upgrade_Tool_1.34烧写写其他固件，请执行以下操作: 进入升级模式**
 
 ```
 sudo upgrade_tool ef update.img  # 擦除
@@ -401,9 +430,8 @@ sudo upgrade_tool rd             # 重置并启动设备
 ```
 * 若擦除或者烧写的时候一直停留在Download Boot Start，请重启后再擦除或者烧写。
 
-### 烧写分区映像
+#### 烧写分区映像
 
-#### ubuntu
 * 进入升级模式、烧写[分区映像]
 ```
 	sudo upgrade_tool ul $LOADER
@@ -413,17 +441,7 @@ sudo upgrade_tool rd             # 重置并启动设备
         sudo upgrade_tool di -b $BOOT
         sudo upgrade_tool di -rootfs $ROOTFS
 ```
-也可以直接使用SDK的脚本烧写`./rkflash.sh`
-```
-	./rkflash.sh boot
-	./rkflash.sh uboot
-	./rkflash.sh loader
-	./rkflash.sh parameter
-	./rkflash.sh trust
-	./rkflash.sh rootfs
-```
-
-**注意**：请分清楚所要烧写固件类型，找到合适的方法进行烧写
+**注意**：请分清楚所要烧写固件类型，找到合适的方法进行烧写，不同的SDK需要选择不同的工具进行擦除与烧写。
 
 ## 常见问题
 
@@ -433,10 +451,11 @@ sudo upgrade_tool rd             # 重置并启动设备
 
 ### 如何进入升级模式
 
-操作方法见[《升级固件》]
+操作方法见[《升级固件》](upgrade_frimware.html)
 
 [《升级固件》]:upgrade_frimware.html
 [配置]:linux_sdk#mkconfig
 [原始固件]:started.html#raw-firmware-format
 [RK固件]:started.html#rk-firmware-formate
 [分区固件]:started.html#partition-image
+[maskrom]:maskrom_mode.html
