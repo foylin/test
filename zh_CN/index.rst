@@ -16,7 +16,6 @@ Welcome to Firefly-RK3399 Manual
    upgrade_firmware
    bootmode
    maskrom_mode
-   faqs.md
 
 .. toctree::
    :glob:
@@ -74,6 +73,13 @@ Welcome to Firefly-RK3399 Manual
    :caption: 其他
    
    uboot_introduction
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :caption: 常见问题解答
+
+   faqs
 
 .. toctree::
    :glob:

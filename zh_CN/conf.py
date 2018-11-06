@@ -114,9 +114,13 @@ html_theme_options = {
         'product_buy_lang': '立即购买',
         'product_regula_lang': '产品规格书',
         'logo_href':'http://wiki.t-firefly.com/',
-        'download_show':'True',
-        'download_name':'资源下载',
-        'download_href':'http://www.t-firefly.com/doc/download/page/id/3.html'
+        #'download_show':'True',
+        #'download_name':'资源下载',
+        #'download_href':'http://www.t-firefly.com/doc/download/page/id/3.html'
+	'sidebar_ext_show': True,
+	'sidebar_ext':[
+		{'name':'资源下载','href':'http://www.t-firefly.com/doc/download/page/id/3.html'},
+	]
     }
 
 

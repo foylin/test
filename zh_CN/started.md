@@ -87,9 +87,6 @@ Firefly-RK3399 支持从以下存储设备启动：
 
 开机时，蓝色的电源指示灯会亮起。如果板子接了HDMI显示器，可以看到Firefly 官方logo.
 
-## [《FAQs 常见问题》](faqs.html)
-
-
 [RK固件]:started.html#rk-firmware-format
 [原始固件]:started.html#raw-firmware-format
 [分区映像]:started.html#partition-image
