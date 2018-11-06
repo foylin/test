@@ -261,8 +261,6 @@ mv rk3399_ubuntu18.04_LXDE.img ubunturootfs/
 
 运行`./mkfirmware.sh`会自动更新`rockdev/rootfs.img`的链接
 
-如果需要Ubuntu16.04的根文件系统，请下载[Ubuntu16.04固件](https://pan.baidu.com/s/17A40It6bJL5__ZSEikPtxA#list/path=%2F)，解包请参考[定制Android](customize_android_firmware.html#jie-bao)下的解包，修改`device/rockchip/rk3399/firefly-rk3399-ubuntu.mk`下的rootfs路径，然后运行`./mkfirmware.sh`会自动更新`rockdev/rootfs.img`的链接
-
 ### 同步更新各部分镜像
 每次打包固件前先确保`rockdev/`目录下文件链接是否正确:
 ```
@@ -310,8 +308,8 @@ error: /home/ljh/proj/linux-sdk/buildroot/output/rockchip_rk3399_recovery/images
 
 下面的固件由Firefly官方提供。
 
-* Ubuntu18.04固件[下载链接](https://pan.baidu.com/s/1PXbZXMAnU3k-KaNl4TgeAA)                                                        
-* Ubuntu16.04固件[下载链接](https://pan.baidu.com/s/17A40It6bJL5__ZSEikPtxA#list/path=%2F)
+* Ubuntu18.04固件[下载链接](https://pan.baidu.com/s/1PXbZXMAnU3k-KaNl4TgeAA#list/path=%2F)                                                        
+* Ubuntu16.04固件[下载链接](https://pan.baidu.com/s/11M5RijHwaX9wzusQdvDgQg#list/path=%2F)
 
 其中Ubuntu18.04固件由[编译Ubuntu固件(GPT)](linux_sdk.html)中的SDK编译生成的，Ubuntu16.04固件由[编译Ubuntu固件(MBR)](linux_compile_mbr.html)中的SDK编译生成的。[编译Ubuntu固件(GPT)](linux_sdk.html)中的SDK为新的SDK，[编译Ubuntu固件(MBR)](linux_compile_mbr.html)中的SDK为旧的SDK。
 
@@ -321,8 +319,8 @@ error: /home/ljh/proj/linux-sdk/buildroot/output/rockchip_rk3399_recovery/images
 
 ### 工具下载
 
-* Windows [AndroidTool](http://download.t-firefly.com/product/RK3399/Tools/AndroidTool/AndroidTool_Release_v2.58.zip)
-* Linux [upgrade_tool](http://download.t-firefly.com/product/RK3399/Tools/Linux_Upgrade_Tool/Linux_Upgrade_Tool_1.34.zip)
+* Windows [AndroidTool](http://www.t-firefly.com/doc/download/page/id/3.html#windows_12)
+* Linux [upgrade_tool](http://www.t-firefly.com/doc/download/page/id/3.html#linux_12)
 
 **烧写Ubuntu18.04在Windows环境下请使用AndroidTool_2.58,Linux环境下请使用upgrade_tool_1.34。**                                                                    
 
@@ -451,9 +449,9 @@ sudo upgrade_tool rd             # 重置并启动设备
 
 ### 如何进入升级模式
 
-操作方法见[《升级固件》](upgrade_frimware.html)
+操作方法见[《升级固件》](upgrade_firmware.html)
 
-[《升级固件》]:upgrade_frimware.html
+[《升级固件》]:upgrade_firmware.html
 [配置]:linux_sdk#mkconfig
 [原始固件]:started.html#raw-firmware-format
 [RK固件]:started.html#rk-firmware-formate
