@@ -11,13 +11,13 @@
 官方推荐 Ubuntu 14.04 操作系统，经测试，Ubuntu 12.04 也可以编译运行成功，只需要满足 [http://source.android.com/source/building.html](http://source.android.com/source/building.html) 里的软硬件配置即可。  
 编译环境的初始化可参考 [http://source.android.com/source/initializing.html](http://source.android.com/source/initializing.html) 。
 
-* 安装 OpenJDK 7：  
+* 安装 OpenJDK 8:
 
 ```
-sudo apt-get install openjdk-7-jdk  
+sudo apt-get install openjdk-8-jdk
 ```    
 
-提示：安装 openjdk-7-jdk，会更改 JDK 的默认链接，这时可用： 
+提示：安装 openjdk-8-jdk，会更改 JDK 的默认链接，这时可用： 
 
 ```
 $ sudo update-alternatives --config java
@@ -27,7 +27,7 @@ $ sudo update-alternatives --config javac
 来切换 JDK 版本。SDK 在找不到操作系统默认 JDK 的时候会使用内部设定的 JDK 路径，因此，为了让同一台机器可以编译 Android 5.1 及之前的版本，去掉链接更方便：
 
 ```
-$ sudo /var/lib/dpkg/info/openjdk-7-jdk:amd64.prerm remove   
+$ sudo /var/lib/dpkg/info/openjdk-8-jdk:amd64.prerm remove   
 ```    
 
 * Ubuntu 12.04 软件包安装：
