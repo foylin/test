@@ -67,8 +67,9 @@ exit
 
 制作自己的根文件系统，大小依据自己的根文件系统而定，注意依据temp文件夹的大小来修改count值
 ```
-dd if=/dev/zero of=linuxroot.img bs=1M count=2048
 mkdir  rootfs
+dd if=/dev/zero of=linuxroot.img bs=1M count=4000
+mkfs.ext4 linuxroot.img
 sudo mount linuxroot.img rootfs/
 sudo cp -rfp temp/*  rootfs/
 sudo umount rootfs/
@@ -81,5 +82,7 @@ resize2fs  -M linuxroot.img
 
 在系统正确加载后执行扩展文件系统命令：
 ```
- resize2fs /dev/mtd/by-name/linuxroot
+ resize2fs /dev/mmcblk1p6    --> rootfs 分区
+
+ 查看 parameter文件中，root= 节点设备
 ```
