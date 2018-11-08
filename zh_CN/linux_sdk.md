@@ -241,18 +241,16 @@ mv linaro-rootfs.img ../distro/
 ```
 ./build.sh recovery
 ```
-5、ubuntu18.04,可以根据我们提供的固件解包:
-[下载链接](https://pan.baidu.com/s/1PXbZXMAnU3k-KaNl4TgeAA)
-**注意**：这里解包的是[原始固件]
-```
-#下载、解压
-xz -d Firefly-RK3399-ubuntu18.04_SDBOOT_xxxx.img.xz
+5、ubuntu18.04,可以通过云盘下载:
 
-#dd解包
-pv Firefly-RK3399-ubuntu18.04_SDBOOT_xxxx.img | sudo dd of=rk3399_ubuntu18.04_LXDE.img skip=376832 conv=notrunc,fsync
-```
+[下载链接](https://pan.baidu.com/s/1DuCzTGARDi7APxyKs9Nl1A#list/path=%2F)
+
 把得到的镜像放到sdk的根目录处:
+
 ```
+#解压
+tar -xvf rk3399_ubuntu18.04_LXDE.img.tgz
+
 #sdk根目录下
 mkdir ubunturootfs
 mv rk3399_ubuntu18.04_LXDE.img ubunturootfs/
