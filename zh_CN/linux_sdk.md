@@ -160,7 +160,7 @@ tools linaro-image-tools autoconf autotools-dev libsigsegv2 m4 intltool libdrm-d
 binutils build-essential gcc g++ bash patch gzip bzip2 perl tar cpio python unzip rsync file bc wget
 libncurses5 libqt4-dev libglib2.0-dev libgtk2.0-dev libglade2-dev cvs git mercurial rsync openssh-
 client subversion asciidoc w3m dblatex graphviz python-matplotlib libc6:i386 libssl-dev texinfo
-liblz4-tool genext2fs
+liblz4-tool genext2fs lib32stdc++6
 ```
 
 编译debian固件:
@@ -172,7 +172,7 @@ gcc-aarch64-linux-gnu g+conf autotools-dev libsigsegv2 m4 intltool libdrm-dev cu
 binutils build-essential gcc g++ bash patch gzip bzip2 perl tar cpio python unzip rsync file bc wget
 libncurses5 libqt4-dev libglib2.0-dev libgtk2.0-dev libglade2-dev cvs git mercurial rsync openssh-
 client subversion asciidoc w3m dblatex graphviz python-matplotlib libc6:i386 libssl-dev texinfo
-liblz4-tool genext2fs
+liblz4-tool genext2fs lib32stdc++6
 ```
 
 ubuntu固件请使用官方提供的根文件系统镜像
