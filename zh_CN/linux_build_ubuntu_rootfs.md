@@ -43,7 +43,8 @@ apt install vim git ....(根据自己需求添加)
 ```
 安装xubuntu
 ```
-apt install xubuntu-desktop
+apt-get install xubuntu-desktop
+apt-get install udev
 ```
 可能出现错误:
 ```
