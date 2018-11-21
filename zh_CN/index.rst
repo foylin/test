@@ -13,8 +13,15 @@ Welcome to Firefly-RK3399 Manual
 
    started
    debug
-   upgrade_firmware
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :caption: 烧写固件
+
    bootmode
+   upgrade_table
+   upgrade_firmware
    maskrom_mode
 
 .. toctree::

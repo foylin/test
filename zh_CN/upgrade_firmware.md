@@ -1,11 +1,9 @@
- # 升级固件
+# 升级固件
 
 ## 前言
 
 本文介绍了如何将主机上的固件文件，通过Type-C数据线，烧录到开发板的闪存中。   
 升级时，需要根据主机操作系统和固件类型来选择合适的升级方式。
-
-**注意:本文升级固件内容以烧写Android 7.1为例，烧写Ubuntu请参考 [Ubuntu 升级固件](linux_sdk.html#ubuntu_upgrade)**
 
 ## 准备工作
 
@@ -28,13 +26,9 @@
 
 ## Windows
 
-之前烧写 RK 的固件，需要用到以下两种工具：
+* 工具: [Androidtool_xxx(版本号)](http://www.t-firefly.com/doc/download/page/id/54.html#windows_12)
 
-* 量产工具 RKBatchTool，用于烧写统一固件（update.img）
-* 开发者工具 RKDevelopTool，可单独烧写分区固件
-
-后来 RK 发布了 AndroidTool 工具，在 RKDevelopTool 的基础上增加了统一固件（update.img）的烧写支持，因此现在仅需要这个工具即可。   
-使用烧写工具前需要安装 RK USB 驱动。如果驱动已经安装好，可以跳过这步。
+**<font color=#ff0000 >注意</font>**:不同固件使用的工具版本可能不同,请根据[烧写须知]下载对应的版本
 
 ### 安装 RK USB 驱动
 
@@ -75,13 +69,19 @@
 1. 切换至"升级固件"页。
 2. 按"固件"按钮，打开要升级的固件文件。升级工具会显示详细的固件信息。
 3. 按"升级"按钮开始升级。
-4. 如果升级失败，可以尝试先按"擦除Flash"按钮来擦除 Flash，然后再升级。
+4. <font color=#ff0000 >如果升级失败，可以尝试先按"擦除Flash"按钮来擦除 Flash，然后再升级。一定要根据[烧写须知](upgrade_table.md)进行擦除烧写</font>
 
-**注意：如果你烧写的固件laoder版本与原来的机器的不一致，请在升级固件前先执行"擦除Flash"。**   
+**注意：如果你烧写的固件laoder版本与原来的机器的不一致，请在升级固件前先执行"擦除Flash"。** 
 
 ![](img/upgrade_firmware4.png)
 
 ### 烧写分区映像
+
+每个固件的分区可能不相同,请注意以下两点:
+1. 使用`Androidtool_2.38`烧写`ubuntu(MBR)`和`Android7.1`固件时使用默认配置即可;
+2. 使用`Androidtool_2.58`烧写`ubuntu(GPT)`使用默认配置即可，烧写`Android8.1`固件请先执行以下操作:
+   
+   <font color=#ff0000 >切换至"下载镜像页面"; 右键点击表格，选择"导入配置"; 选择rk3399-Android81.cfg</font>
 
 烧写分区映像的步骤如下：
 
@@ -94,23 +94,18 @@
 
 ## Linux
 
-RK 提供了一个 Linux 下的命令行工具 upgrade_tool，支持统一固件 update.img 和分区镜像的烧写。
+ Linux 下无须安装设备驱动，参照 Windows 章节连接设备则可。
 
-开源工具则有两个选择:
+* 工具:[upgrade_tool_xxx(版本号)](http://www.t-firefly.com/doc/download/page/id/54.html#linux_12)
 
-* [rkflashtool](https://github.com/Galland/rkflashtool_rk3066)
-
-* [rkflashkit](https://github.com/linuxerwang/rkflashkit)
-
-它们都仅支持分区映像烧写，不支持统一固件。rkflashtool 是命令行工具，rkflashkit 有图形界面，后加了命令行支持，更是好用。以下仅对 rkflashkit 做介绍。   
-*** Linux 下无须安装设备驱动，参照 Windows 章节连接设备则可。***
+**<font color=#ff0000 >注意</font>**:不同固件使用的工具版本可能不同,请根据[烧写须知]下载对应的版本
 
 ### upgrade_tool
 
 下载 [Linux_Upgrade_Tool](http://www.t-firefly.com/doc/download/page/id/3.html#linux_12)(**系统是Android8.1则需要Linux_Upgrde_Tool_for_android8.1**), 并按以下方法安装到系统中，方便调用：   
 ```
-unzip Linux_Upgrade_Tool_v1.24.zip
-cd Linux_UpgradeTool_v1.24
+unzip Linux_Upgrade_Tool_xxxx.zip
+cd Linux_UpgradeTool_xxxx
 sudo mv upgrade_tool /usr/local/bin
 sudo chown root:root /usr/local/bin/upgrade_tool
 ```
@@ -120,7 +115,17 @@ sudo chown root:root /usr/local/bin/upgrade_tool
 sudo upgrade_tool uf update.img
 ```
 
+
+<font color=#ff0000 >如果升级失败，可以尝试先擦除后再升级。一定要根据[烧写须知]的表格(upgrade_table.md)进行擦除烧写</font>
+```
+# 擦除flash 使用ef参数需要指定loader文件或者对应的update.img
+sudo upgrade_tool ef update.img #update.img :你需要烧写的ubuntu固件
+# 重新烧写
+sudo upgrade_tool uf update.img 
+```
+
 烧写分区镜像：   
+Ubuntu(MBR)、Android7.1、Android8.1,使用以下方式:
 ```
 sudo upgrade_tool di -b /path/to/boot.img
 sudo upgrade_tool di -k /path/to/kernel.img
@@ -132,51 +137,31 @@ sudo upgrade_tool di -p paramater   #烧写 parameter
 sudo upgrade_tool ul bootloader.bin # 烧写 bootloader
 ```
 
+Ubuntu(GPT),使用以下方式
+```
+sudo upgrade_tool ul $LOADER
+sudo upgrade_tool di -p $PARAMETER
+sudo upgrade_tool di -uboot $UBOOT
+sudo upgrade_tool di -trust $TRUST
+sudo upgrade_tool di -b $BOOT
+sudo upgrade_tool di -r $RECOVERY
+sudo upgrade_tool di -m $MISC
+sudo upgrade_tool di -oem $OEM
+sudo upgrade_tool di -userdata $USERDATA
+sudo upgrade_tool di -rootfs $ROOTFS
+```
+
+
 如果因 flash 问题导致升级时出错，可以尝试低级格式化、擦除 nand flash：   
 ```
 sudo upgrade_tool lf update.img	# 低级格式化
 sudo upgrade_tool ef update.img	# 擦除
 ```
-### rkflashkit
-
-安装：   
-```
-sudo apt-get install build-essential fakeroot 
-git clone https://github.com/linuxerwang/rkflashkit
-cd rkflashkit
-./waf debian
-sudo apt-get install python-gtk2
-sudo dpkg -i rkflashkit_0.1.4_all.deb
-```
-
-图形界面：   
-```
-sudo rkflashkit
-```
-
-![](img/upgrade_firmware5.png)
-
-命令行：   
-```
-$ rkflashkit --help
-Usage:  [args] [ [args]...]
-
-part                              List partition
-flash @    Flash partition with image file
-cmp @      Compare partition with image file
-backup @   Backup partition to image file
-erase  @               Erase partition
-reboot                            Reboot device
-
-For example, flash device with boot.img and kernel.img, then reboot:
-
-sudo rkflashkit flash @boot boot.img @kernel.img kernel.img reboot
-```
-
-帮助信息里有使用示例，可以看出，一条命令就可以烧写多个映像文件并重启设备，对需要经常编译和烧写内核的开发者来说，是一大福音。
-
 ## 常见问题
 
 ### 如何强行进入 MaskRom 模式
 
 如果板子进入不了 Loader 模式，此时可以尝试强行进入 MaskRom 模式。操作方法见[《如何进入 MaskRom 模式》](maskrom_mode.html)。
+
+
+[烧写须知]: upgrade_table.html
