@@ -12,6 +12,8 @@ git clone https://github.com/FireflyTeam/repo.git
 
 下载 Linux-SDK: 
 
+* 方法一
+
 初始化repo仓库：
 ```
 mkdir linux-sdk
@@ -34,6 +36,20 @@ do
 	../repo/repo sync -c ; 
 done
 
+```
+
+* 方法二(国内用户推荐使用)
+
+因为国内用户可能git拉代码会比较慢，所以官方提供了基础得源码包`Linux_SDK.7z`
+
+下载[Linux_SDK.7z](http://www.t-firefly.com/doc/download/page/id/54.html#other_186)
+
+```
+1.把压缩包放在上一步下载repo工具的目录下
+7z x Linux_SDK.7z
+
+2.更新代码
+repo sync -c
 ```
 
 ## Linux_SDK 目录介绍
