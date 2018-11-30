@@ -77,14 +77,14 @@ repo sync -c
 ```
 <a id="mkconfig"></a>
 ## 编译前配置
-配置文件 firefly-rk3399-ubuntu.mk:
+配置文件 firefly-rk3399.mk:
 ```
-./build.sh firefly-rk3399-ubuntu.mk
+./build.sh firefly-rk3399.mk
 ```
 
-文件路径在`device/rockchip/rk3399/firefly-rk3399-ubuntu.mk`配置文件生效会连接到`device/rockchip/.BoardConfig.mk`,检查该文件可以验证是否配置成功
+文件路径在`device/rockchip/rk3399/firefly-rk3399.mk`配置文件生效会连接到`device/rockchip/.BoardConfig.mk`,检查该文件可以验证是否配置成功
 
-**注意**:`firefly-rk3399-ubuntu.mk`为编译生成ubuntu固件的配置文件.同时用户也可以通过参考该配置生成新的配置文件来适配自己所需要的固件。
+**注意**:`firefly-rk3399.mk`为编译生成buildroot固件的配置文件.同时用户也可以通过参考该配置生成新的配置文件来适配自己所需要的固件。
 
 重要配置介绍:(如果需要diy固件，可能需要修改下列配置信息)
 ```
@@ -105,7 +105,7 @@ export RK_PARAMETER=parameter-ubuntu.txt   分区信息(十分重要)
 export RK_PACKAGE_FILE=rk3399-ubuntu-package-file   打包配置文件
 
 # rootfs image path
-export RK_ROOTFS_IMG=ubunturootfs/rk3399_ubuntu18.04_LXDE.img   根文件系统镜像路径
+export RK_ROOTFS_IMG=xxxx/xxxx.img   根文件系统镜像路径
 
 ```
 
@@ -219,7 +219,12 @@ liblz4-tool genext2fs lib32stdc++6
 ```
 ./build.sh u-boot
 ```
-3、rootfs
+3、补充：recovery分区可省略，若有需要： 编译recovery:
+
+```
+./build.sh recovery
+```
+4、rootfs
 
 * buildroot:
 ```
@@ -261,13 +266,16 @@ VERSION=debug ARCH=arm64 ./mk-rootfs-stretch-arm64.sh
 4:
 ./mk-image.sh
 mv linaro-rootfs.img ../distro/
-```
-4、补充：recovery分区可省略，若有需要： 编译recovery:
+
+5:
+#修改firefly-rk3399.mk文件
+vim device/rockchip/rk3399/firefly-rk3399.mk
+
+#把RK_ROOTFS_IMG属性改成ubuntu文件系统镜像得路径(也就是linaro-rootfs.img)
+RK_ROOTFS_IMG=distro/linaro-rootfs.img
 
 ```
-./build.sh recovery
-```
-5、ubuntu18.04,可以通过云盘下载:
+* ubuntu18.04,可以通过云盘下载:
 
 [下载链接](https://pan.baidu.com/s/1DuCzTGARDi7APxyKs9Nl1A#list/path=%2F)
 
@@ -280,6 +288,12 @@ tar -xvf rk3399_ubuntu18.04_LXDE.img.tgz
 #sdk根目录下
 mkdir ubunturootfs
 mv rk3399_ubuntu18.04_LXDE.img ubunturootfs/
+
+#修改firefly-rk3399.mk文件
+vim device/rockchip/rk3399/firefly-rk3399.mk
+
+#把RK_ROOTFS_IMG属性改成ubuntu文件系统镜像得路径(也就是rk3399_ubuntu18.04_LXDE.img)
+RK_ROOTFS_IMG=ubunturootfs/rk3399_ubuntu18.04_LXDE.img
 ```
 **注意**:ubuntu根文件系统镜像存放路径不能错
 
