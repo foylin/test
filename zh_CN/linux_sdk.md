@@ -330,7 +330,7 @@ error: /home/ljh/proj/linux-sdk/buildroot/output/rockchip_rk3399_recovery/images
 上文提到，这些属于可省略分区镜像，可以不用理会。
 ```
 ## 打包
-**注意**：打包前请确认`tools/linux/Linux_Pack_Firmware/rockdev/package-file`是否正确。打包会根据此文件进行分区打包。此文件链接会在`./build.sh firefly-rk3399-ubuntu.mk` 命令时更新，如果配置不对请返回[配置]一节重新配置一次。
+**注意**：打包前请确认`tools/linux/Linux_Pack_Firmware/rockdev/package-file`是否正确。打包会根据此文件进行分区打包。此文件链接会在`./build.sh firefly-rk3399.mk` 命令时更新，如果配置不对请返回[配置]一节重新配置一次。
 
 整合统一固件:
 ```
