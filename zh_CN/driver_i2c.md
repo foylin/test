@@ -21,7 +21,7 @@ Firefly-RK3399开发板上有 9 个片上 I2C 控制器，各个 I2C 的使用�
 
 用户所提供的 I2C 设备信息以节点的形式写到 dts 文件中，如下所示：
 ```
-kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-mini-edp.dts
+kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-edp.dts
 &i2c4 {
     status = "okay";
     gsl3680: gsl3680@41 {

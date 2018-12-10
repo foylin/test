@@ -83,22 +83,22 @@ echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/code_print
 #### 将 IR 驱动编译进内核
 将 IR 驱动编译进内核的步骤如下所示：
 
-(1)、向配置文件 drivers/input/remotectl/Kconfig 中添加如下配置：
+(1)、向配置文件 kernel/drivers/input/remotectl/Kconfig 中添加如下配置：
 ```
-config RK_REMOTECTL_PWM
-    bool "rkxx remoctrl pwm0 capture"
-default n
+config ROCKCHIP_REMOTECTL_PWM
+        bool "rockchip remoctrl pwm capture"
+        default n
 ```
-(2)、修改 drivers/input/remotectl 路径下的 Makefile,添加如下编译选项：
+(2)、修改 kernel/drivers/input/remotectl/Makefile 文件,添加如下编译选项：
 ```
-obj-$(RK_REMOTECTL_PWM)      += rk_pwm_remotectl.o
+obj-$(CONFIG_ROCKCHIP_REMOTECTL_PWM)    += rockchip_pwm_remotectl.o
 ```
 (3)、在 kernel 路径下使用 make menuconfig ，按照如下方法将IR驱动选中。
 ```
 Device Drivers
   --->Input device support
-  ----->  [*]   rkxx remotectl
-  ------->[*]   rkxx remoctrl pwm0 capture.
+  ----->  [*]   rockchip remotectl
+  ------->[*]   rockchip remoctrl pwm capture
 ```
 保存后，执行 make 命令即可将该驱动编进内核。
 #### Android 键值映射

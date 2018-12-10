@@ -151,6 +151,15 @@ spi-firefly-demo默认没有打开，如果需要的话可以使用以下补丁�
    +       status = "disabled";
  };
 ```
+注意：由于spi1_rxd和spi1_txd两个脚可复用为uart4_rx和uart4_tx，所以要留意关闭掉uart4的使用，如下：  
+```
+kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-port.dtsi
+&uart4 {
+        current-speed = <9600>;
+        no-loopback-test;
+        status = "disabled";
+};
+```
 ### 常用SPI接口
 
 下面是常用的 SPI API 定义：

@@ -89,7 +89,7 @@ Firefly-RK3399的SDK有MIPI DSI的DTS文件：kernel/arch/arm64/boot/dts/rockchi
         };
 };
 
-&mipi_dsi {
+&dsi {
         status = "okay";
         dsi_panel: panel {
                 compatible ="simple-panel-dsi";
@@ -297,7 +297,7 @@ disp_timings: display-timings {
 }
 ```
 
-* Kernel
+*  Kernel
 
 在kernel/drivers/gpu/drm/panel/panel-simple.c中可以看到在初始化函数panel_simple_probe中初始化了获取时序的函数。
 
@@ -338,7 +338,7 @@ mipi屏上完电后需要发送初始化指令才能使之工作。
 
 可以在kernel/arch/arm64/boot/dts/rockchip/rk3399-firefly-mipi.dts中可以看到mipi的初始化指令列表：
 ```
-&mipi_dsi {    
+&dsi {    
             status = "okay";      
         ...
             panel-init-sequence = [                
