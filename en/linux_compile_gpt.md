@@ -208,7 +208,7 @@ vim device/rockchip/rk3399/firefly-rk3399.mk
 # Modify RK_ROOTFS_IMG 
 RK_ROOTFS_IMG=distro/linaro-rootfs.img
 ```
-* ubuntu: Download official [rootfs](https://pan.baidu.com/s/1DuCzTGARDi7APxyKs9Nl1A#list/path=%2F)  
+* ubuntu: Download official [rootfs](http://en.t-firefly.com/doc/download/page/id/3.html#other_117)  
 
 Download、Decompression
 ```

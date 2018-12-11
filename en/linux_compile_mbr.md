@@ -39,7 +39,7 @@ $ git clone -b firefly https://github.com/FireflyTeam/kernel.git
 ```
 $ git clone -b master https://github.com/FireflyTeam/u-boot.git
 ```
-* rootfs:Download official [rootfs](https://pan.baidu.com/s/1DuCzTGARDi7APxyKs9Nl1A)
+* rootfs:Download official [rootfs](http://en.t-firefly.com/doc/download/page/id/3.html#other_117)
 
 ## Compile Kernel
 * Before compiling, execute the following command
