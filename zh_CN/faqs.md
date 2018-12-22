@@ -36,6 +36,9 @@ Android系统有很多很强大的功能都需要用到root权限，开发者经
 3. 然后返回上一级点击Developer options选项后，在选项中点击ROOT access就打开root权限功能
 ![](img/android_root.png)
 
+### 如何强行进入 MaskRom 模式
+如果板子进入不了 Loader 模式，此时可以尝试强行进入 MaskRom 模式。操作方法见[《如何进入 MaskRom 模式》](maskrom_mode.html)。
+
 ### PCIE
 * 开发板上的两个PCIE的区别?
   * 正面是PCIe 1.0, M.2，背面的是USB转的Mini PCIe。SSD、SATA接M.2，LTE/3G接Mini PCIe。
