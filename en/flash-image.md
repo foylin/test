@@ -108,6 +108,7 @@ Download [Linux_Upgrade_Tool](http://en.t-firefly.com/doc/download/3.html#linux_
    cd Linux_UpgradeTool_xxxx
    sudo mv upgrade_tool /usr/local/bin
    sudo chown root:root /usr/local/bin/upgrade_tool
+   sudo chmod a+x /usr/local/bin/upgrade_tool
 ```
 <font color=#ff0000>NOTE: If you are prompted with the following error:</font>
 ```
