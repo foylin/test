@@ -108,6 +108,7 @@ unzip Linux_Upgrade_Tool_xxxx.zip
 cd Linux_UpgradeTool_xxxx
 sudo mv upgrade_tool /usr/local/bin
 sudo chown root:root /usr/local/bin/upgrade_tool
+sudo chmod u+x /usr/local/bin/upgrade_tool
 ```
 
 烧写统一固件 update.img：   
