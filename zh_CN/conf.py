@@ -119,6 +119,7 @@ html_theme_options = {
         #'download_href':'http://www.t-firefly.com/doc/download/page/id/3.html'
 	'sidebar_ext_show': True,
 	'sidebar_ext':[
+		{'name':'FireflyApi','href':'http://wiki.t-firefly.com/zh_CN/FireflyApi/FireflyApi.html'},
 		{'name':'资源下载','href':'http://www.t-firefly.com/doc/download/page/id/3.html'},
 	]
     }
