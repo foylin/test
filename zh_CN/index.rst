@@ -32,7 +32,6 @@ Welcome to Firefly-RK3399 Manual
    linux
    linux_build_ubuntu_rootfs.md  
    linux_compile_gpt.md
-   linux_compile_parameter.md
 
 .. toctree::
    :glob:

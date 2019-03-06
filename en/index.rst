@@ -27,7 +27,6 @@ Welcome to Firefly-RK3399 Manual
    type-description   
    linux_compile_rootfs
    linux_compile_gpt
-   linux_compile_mbr
 
 .. toctree::
    :glob:
