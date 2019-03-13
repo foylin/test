@@ -48,8 +48,6 @@ Note:
     (EE) AIGLX error: dlopen of /usr/lib/aarch64-linux-gnu/dri/rockchip_dri.so failed
     ```
 
-    
-
     这个对系统运行没有任何影响，不需要处理。
 
 3.  基于同样的道理，某些应用启动过程中，也会报告如下错误，不用处理，对应用的运行不会造成影响。
@@ -58,6 +56,20 @@ Note:
     libGL error: unable to load driver: rockchip_dri.so
     libGL error: driver pointer missing
     libGL error: failed to load driver: rockchip
+    ```
+
+4.  Firefly之前发布的某些版本的Ubuntu软件，默认关闭了加载libglx.so，在某些情况下，运行某些应用程序会出现下述错误：
+
+    `GdkGLExt-WARNING **: Window system doesn't support OpenGL.`
+
+    修正的方法如下：
+
+    删除  `/etc/X11/xorg.conf.d/20-modesetting.conf` 中一下三行配置。
+
+    ```shell
+    Section "Module"
+         Disable     "glx"
+    EndSection
     ```
 
     
