@@ -110,7 +110,7 @@ html_theme_options = {
         'product_des_one': '',
         'product_des_two': '作为Firefly新一代的顶级开源平台，Firefly-RK3399采用了六核64位“服务器级”处理器Rockchip RK3399，拥有2GB/4GB DDR3和16G/32GB eMMC, 并新增DP 1.2、PCIe 2.1 M.2、Type-C、USB3.0 HOST等高性能数据传输和显示接口。',
         'product_buy': 'https://store.t-firefly.com/goods.php?id=44',
-        'product_regula': 'http://download.t-firefly.com/%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E6%96%87%E6%A1%A3/Firefly-RK3399%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E4%B9%A6V1.0.pdf',
+        'product_regula': 'http://download.t-firefly.com/%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E6%96%87%E6%A1%A3/Firefly-RK3399%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf',
         'product_buy_lang': '立即购买',
         'product_regula_lang': '产品规格书',
         'logo_href':'http://wiki.t-firefly.com/',
