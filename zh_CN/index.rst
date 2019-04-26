@@ -29,10 +29,10 @@ Welcome to Firefly-RK3399 Manual
    :maxdepth: 2
    :caption: Linux开发
    
-   linux
    linux_build_ubuntu_rootfs.md  
    linux_compile_gpt.md
    ubuntu_support.md
+   buildroot_compile
 
 .. toctree::
    :glob:
