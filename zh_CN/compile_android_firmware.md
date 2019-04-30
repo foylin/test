@@ -77,6 +77,15 @@ git remote rm gitlab
 git remote add gitlab https://gitlab.com/TeeFirefly/FireNow-Nougat.git  
 git pull gitlab firefly-rk3399:firefly-rk3399
 ```
+注意：由于仓库管理的改变，上述方法已经无法继续更新，请使用以下方式进行SDK更新。
+操作如下：
+```
+cd ~/proj/firefly-rk3399  (进入SDK根目录)
+git clone https://gitlab.com/TeeFirefly/rk3399-nougat-bundle.git .bundle
+.bundle/update
+(按照提示已经更新内容到 FETCH_HEAD)
+git rebase FETCH_HEAD  (同步FETCH_HEAD到firefly-rk3399分支)
+```
 也可以到 https://gitlab.com/TeeFirefly/FireNow-Nougat/tree/firefly-rk3399 在线浏览源码。 
 
 ## 使用 Firefly 官方脚本编译

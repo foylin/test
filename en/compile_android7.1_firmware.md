@@ -59,6 +59,15 @@ git remote rm gitlab
 git remote add gitlab  https://gitlab.com/TeeFirefly/FireNow-Nougat.git
 git pull gitlab firefly-rk3399:firefly-rk3399
 ```
+<font color=#ff0000>Attention: We had stopped the way updating remote repository, pls follow step below to continue.</font>
+```
+cd ~/proj/firefly-rk3399
+git clone https://gitlab.com/TeeFirefly/rk3399-nougat-bundle.git .bundle
+.bundle/update
+(Remote repository has been downloaded to the branch FETCH_HEAD)
+git rebase FETCH_HEAD
+```
+
 You can also browse the source codes online at [https://gitlab.com/TeeFirefly/FireNow-Nougat/tree/firefly-rk3399](https://gitlab.com/TeeFirefly/FireNow-Nougat/tree/firefly-rk3399)
 ## Use Firefly's script to compile
 
