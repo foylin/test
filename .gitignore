@@ -1,2 +1,4 @@
 _build
 sphinx-markdown
+zh_CN/_build
+en/_build
