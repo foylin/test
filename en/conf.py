@@ -18,9 +18,9 @@ import os
 
 # -- Project information -----------------------------------------------------
 
-project = 'Firefly-RK3399 Manual'
-_project_filename = 'Firefly-RK3399_Manual'
-copyright = '2018, Firefly Team'
+project = 'face-x1 Manual'
+_project_filename = 'face-x1_Manual'
+copyright = '2019, Firefly Team'
 author = 'Firefly Team'
 
 # The short X.Y version

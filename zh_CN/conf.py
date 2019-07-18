@@ -18,9 +18,9 @@ import os
 
 # -- Project information -----------------------------------------------------
 
-project = 'Firefly-RK3399 Manual'
-_project_filename = 'Firefly-RK3399_Manual'
-copyright = '2018, Firefly Team'
+project = 'face-x1 Manual'
+_project_filename = 'face-x1_Manual'
+copyright = '2019, Firefly Team'
 author = 'Firefly Team'
 
 # The short X.Y version
@@ -105,23 +105,22 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 #
 html_theme_options = {
         'product_show': True,
-        'product_name': 'Firefly-RK3399',
-        'product_img': 'http://www.t-firefly.com/upload/portal/20180528/e63ec8b5524aebb7c2c7d51171641083.png',
+        'product_name': 'Face-RK3399',
+        'product_img': 'http://www.t-firefly.com/upload/portal/20190422/cf5a8074aac2ce9c787ecfb02f426ac4.png',
         'product_des_one': '',
-        'product_des_two': '作为Firefly新一代的顶级开源平台，Firefly-RK3399采用了六核64位“服务器级”处理器Rockchip RK3399，拥有2GB/4GB DDR3和16G/32GB eMMC, 并新增DP 1.2、PCIe 2.1 M.2、Type-C、USB3.0 HOST等高性能数据传输和显示接口。',
-        'product_buy': 'https://store.t-firefly.com/goods.php?id=44',
-        'product_regula': 'http://download.t-firefly.com/%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E6%96%87%E6%A1%A3/Firefly-RK3399%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf',
-        'product_buy_lang': '立即购买',
+        'product_des_two': '尺寸小巧，性能强悍，拥有强大的人脸识别性能，适配多种人脸识别算法，支持多种识别模式，丰富的外围接口可搭载各种闸机安防外设，能满足门禁、考勤、刷脸支付等应用需求，以及提供一站式方案，开放配套资料，助力项目快速落地。',
+        #'product_buy': 'https://store.t-firefly.com/goods.php?id=84',
+        'product_regula': 'https://download.t-firefly.com/%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E6%96%87%E6%A1%A3/%E8%A1%8C%E4%B8%9A%E5%A5%97%E4%BB%B6/Face-RK3399-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E4%B8%BB%E6%9D%BF-%E4%BA%A7%E5%93%81%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf',
+        #'product_buy_lang': '立即购买',
         'product_regula_lang': '产品规格书',
         'logo_href':'http://wiki.t-firefly.com/',
         #'download_show':'True',
         #'download_name':'资源下载',
-        #'download_href':'http://www.t-firefly.com/doc/download/page/id/3.html'
-	'sidebar_ext_show': True,
-	'sidebar_ext':[
-		{'name':'FireflyApi','href':'http://wiki.t-firefly.com/zh_CN/FireflyApi/FireflyApi.html'},
-		{'name':'资源下载','href':'http://www.t-firefly.com/doc/download/page/id/3.html'},
-	]
+        #'download_href':'http://www.t-firefly.com/doc/download/page/id/31.html'
+        'sidebar_ext_show': True,
+        'sidebar_ext':[
+            {'name':'资源下载','href':'http://www.t-firefly.com/doc/download/page/id/72.html'},
+        ]
     }
 
 
